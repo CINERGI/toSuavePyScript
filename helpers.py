@@ -214,3 +214,4 @@ def uploadToSuave(new_file, survey_name, user, views, view, referer, upload_url,
     else:
         #printmd("Error creating new survey. Check if a survey with this name already exists.")
         #printmd("Reason: " + str(r.status_code) + " " + r.reason)
+        return "someth"
