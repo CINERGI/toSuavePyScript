@@ -84,7 +84,8 @@ img_dict = {"Army Corps of Engineers USACE (U)": "USACE",
             "Wyoming Geolibrary (U)": "wyoming",
             "cn.dataone.org (P)": "dataone",
             "cn.dataone.org (U)": "dataone",
-            "example_tests": "individual"
+            "example_tests": "individual",
+            "BCO DMO (P)": "individual"
            }
 
 def getLinksFromURL(URL):
@@ -95,7 +96,7 @@ def getLinksFromURL(URL):
     for i in range(1, len(linkstr)):
         ind = linkstr[i].find("%22")
         linkstr[i] = linkstr[i][ind+3:linkstr[i].find("%22", ind+3)]
-        #print(linkstr[i])
+        print(linkstr[i])
     return linkstr[1:]
 
 
@@ -208,10 +209,10 @@ def uploadToSuave(new_file, survey_name, user, views, view, referer, upload_url,
         s_url =  regex.sub('_', s_url)
     
         url = new_survey_url_base + user + "_" + survey_name + ".csv" + "&views=" + views + "&view=" + view
+
         return url
-        #print(url)
-        #printmd("Click the URL to open the new survey")
+        #print("Click the URL to open the new survey")
     else:
-        #printmd("Error creating new survey. Check if a survey with this name already exists.")
-        #printmd("Reason: " + str(r.status_code) + " " + r.reason)
-        return "someth"
+        print("Error creating new survey. Check if a survey with this name already exists.")
+        print("Reason: " + str(r.status_code) + " " + r.reason)
+        return "something"
